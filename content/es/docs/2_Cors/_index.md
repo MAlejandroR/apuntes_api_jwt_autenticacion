@@ -1,8 +1,8 @@
 ---
 title: "CORS"
-linkTitle: "Cors"
+linkTitle: "2_Cors"
 weight: 30
-icon: fa-brands fa-docker
+icon: fa-solid fa-screwdriver-wrench
 draft: false
 ---
 

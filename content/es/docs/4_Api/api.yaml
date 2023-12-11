@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: Ejemplo de API
+  version: 1.0.0
+paths:
+  /usuarios:
+    get:
+      summary: Obtener lista de usuarios
+      responses:
+        '200':
+          description: Éxito
+  /usuarios/{id}:
+    get:
+      summary: Obtener detalles de un usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID del usuario
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Éxito
+    put:
+      summary: Actualizar un usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID del usuario
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Éxito
+    delete:
+      summary: Eliminar un usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID del usuario
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: No Content
