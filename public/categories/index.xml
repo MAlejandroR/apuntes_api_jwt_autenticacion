@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Certificado Web – Categories</title>
-    <link>http://certificado.infenalaces.com/contenido/categories/</link>
+    <link>http://proyectosdwa.es/manuel/api/categories/</link>
     <description>Recent content in Categories on Certificado Web</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     
-	  <atom:link href="http://certificado.infenalaces.com/contenido/categories/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="http://proyectosdwa.es/manuel/api/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
       

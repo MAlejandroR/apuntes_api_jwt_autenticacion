@@ -1,0 +1,442 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="es" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.121.1">
+<link rel="alternate" type="application/rss&#43;xml" href="http://proyectosdwa.es/manuel/api/docs/2_cors/index.xml">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/manuel/api/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/manuel/api/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/manuel/api/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/manuel/api/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/manuel/api/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/manuel/api/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/manuel/api/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/manuel/api/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/manuel/api/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/manuel/api/favicons/android-192x192.png" sizes="192x192">
+
+<title>CORS | Certificado Web</title>
+<meta name="description" content="Apuntes sobre web">
+<meta property="og:title" content="CORS" />
+<meta property="og:description" content="Apuntes sobre web" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://proyectosdwa.es/manuel/api/docs/2_cors/" />
+
+<meta itemprop="name" content="CORS">
+<meta itemprop="description" content="Apuntes sobre web"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="CORS"/>
+<meta name="twitter:description" content="Apuntes sobre web"/>
+
+
+
+
+<link rel="preload" href="/manuel/api/scss/main.min.a259b9314771009688f4539373ec884b9c75fd106d86fce70f6e126c27b44f1a.css" as="style">
+<link href="/manuel/api/scss/main.min.a259b9314771009688f4539373ec884b9c75fd106d86fce70f6e126c27b44f1a.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/manuel/api/"><span class="navbar-brand__logo navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300pt" height="100pt" viewBox="0 0 300 100"><g transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M2867 984c-15-16-7-53 14-59 30-10 58 19 43 43-12 18-45 28-57 16z"/><path d="M2542 960c-27-11-39-37-24-52 8-8 15-8 26 1 17 15 58 11 63-5 2-7-19-39-47-72-70-85-68-92 30-92 73 0 80 2 80 20 0 17-7 20-45 20h-45l40 51c25 32 40 61 40 79 0 49-58 74-118 50z"/><path d="M2680 945c0-18 5-25 20-25 19 0 20-7 20-90 0-89 0-90 25-90h25v115 115h-45c-41 0-45-2-45-25z"/><path d="M2960 910c0-5 5-10 10-10 6 0 10 5 10 10 0 6-4 10-10 10-5 0-10-4-10-10z"/><path d="M2910 881c0-18 30-25 43-11 9 10 9 11-1 6-7-4-19-2-27 4-11 9-15 9-15 1z"/><path d="M2850 805c-24-25-42-45-39-45s25 20 49 45 42 45 39 45-25-20-49-45z"/><path d="M7 824c-4-4-7-128-7-274 0-217 3-270 14-279 9-8 45-11 98-9l83 3 5 184 5 184 109-164c60-90 118-174 129-186l20-23h349 348v75 75H960 760v35 35l188 2 187 3v65 65l-187 3-188 2v25 25h320 320V465 259l98 3 97 3 3 203 2 202h210 210l2-202 3-203h1e2 1e2l3 202 2 202 118 3 117 3 3 78 3 77h-960-961l-2-182-3-183-120 180-121 180-145 3c-80 1-148-1-152-4z"/><path d="M753 169c-26-8-33-16-39-45-3-19-2-50 3-67 7-26 16-34 46-41 59-15 91 1 95 47 3 36 3 37-32 37-37 0-48-13-20-24 22-8 7-26-22-26-21 0-24 4-24 40 0 47 13 56 64 42 32-9 36-8 36 8 0 10-3 21-7 23-20 12-71 15-1e2 6z"/><path d="M1416 167c-28-20-18-71 14-75 60-7 71-12 68-35-2-18-11-23-41-25-26-2-39 1-43 12-3 9-10 16-15 16-11 0 1-33 15-42 19-13 74-8 90 8 32 32 13 74-34 74-36 0-63 21-54 43 8 23 63 23 80 0 13-17 13-17 14 0 0 10-11 22-26 27-34 13-47 13-68-3z"/><path d="M1890 173c-24-9-30-25-30-80 0-61 17-83 63-83 49 0 60 13 65 73 4 46 1 58-17 76-20 20-50 25-81 14zm78-57c2-22 1-50-3-63-5-21-11-24-43-21-37 3-37 3-40 52-4 69 1 78 45 74 36-3 38-5 41-42z"/><path d="M2035 166c-23-17-28-114-6-139 16-20 81-23 99-5 7 7 12 39 12 75 0 51-3 64-19 73-27 14-64 13-86-4zm80-71V35l-34-3c-40-4-51 9-51 60 0 59 8 69 49 66l36-3V95z"/><path d="M312 85c-26-53-37-85-29-85 7 0 32 38 55 85 26 53 37 85 29 85-7 0-32-38-55-85z"/><path d="M480 90V10h53c69 0 88 15 94 72 8 73-6 88-82 88h-65V90zm95 5c0-36-3-40-27-43-26-3-28-1-28 36 0 45 6 54 35 50 16-2 20-10 20-43z"/><path d="M650 90c0-73 2-80 20-80s20 7 20 80-2 80-20 80-20-7-20-80z"/><path d="M882 93c3-70 5-78 23-78s20 8 23 78c3 77 3 77-23 77s-26 0-23-77z"/><path d="M940 155c0-8 9-15 20-15 16 0 19-8 22-62 3-55 5-63 23-63s20 8 23 63c3 54 6 62 22 62 11 0 20 7 20 15 0 12-14 15-65 15s-65-3-65-15z"/><path d="M1115 158c-3-7-13-41-24-76-17-56-18-64-4-69 9-4 21 1 28 10 15 21 64 22 71 2 7-17 44-21 44-4 0 6-9 42-21 80-21 68-22 69-55 69-19 0-37-6-39-12zm54-75c1-7-6-13-14-13-16 0-19 17-8 46 6 16 7 16 14-2 4-10 8-25 8-31z"/><path d="M1250 90V10h55c48 0 55 2 55 20 0 16-7 20-35 20h-35v60c0 53-2 60-20 60s-20-7-20-80z"/><path d="M1549 143c-12-31-4-99 13-120 13-16 80-17 96-1 7 7 12 21 11 32 0 20-1 20-11-2-16-32-83-32-92 1-10 36-7 82 6 95 20 20 64 14 82-10l16-23-2 25c-3 23-8 25-56 28-49 3-53 1-63-25z"/><path d="M17e2 89c0-51 4-78 10-74 6 3 10 22 10 41 0 34 0 34 45 34s45 0 45-34c0-19 5-38 10-41 6-4 10 23 10 74 0 47-4 81-10 81-5 0-10-16-10-35 0-35 0-35-45-35s-45 0-45 35c0 19-4 35-10 35s-10-34-10-81z"/><path d="M2170 90V10h50c28 0 50 5 50 10 0 6-18 10-40 10h-40v70c0 40-4 70-10 70s-10-33-10-80z"/><path d="M2350 90c-45-89-45-90-27-90 6 1 31 39 55 85 32 64 39 85 27 85-9 0-31-32-55-80z"/></g></svg></span><span class="navbar-brand__name">Certificado Web</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link active" href="/manuel/api/docs/"><span class="active">Documentación</span></a>
+      </li>
+      <li class="nav-item dropdown mr-4 d-none d-lg-block">
+        
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Español
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/manuel/api/en/">English</a>
+	
+	<a class="dropdown-item" href="/manuel/api/fr/">Francés</a>
+	
+</div></li>
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <div class="nav-item dropdown d-block d-lg-none">
+      
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Español
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/manuel/api/en/">English</a>
+	
+	<a class="dropdown-item" href="/manuel/api/fr/">Francés</a>
+	
+</div>
+    </div>
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-manuelapidocs-li">
+  <a href="/manuel/api/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-manuelapidocs"><i class="fa-solid fa-screwdriver-wrench"></i><span class="">Documentación</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manuelapidocs1_token_indes-li">
+  <input type="checkbox" id="m-manuelapidocs1_token_indes-check"/>
+  <label for="m-manuelapidocs1_token_indes-check"><a href="/manuel/api/docs/1_token/_indes/" title="El  Token" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manuelapidocs1_token_indes"><i class="fa-brands fa-php"></i><span class="">Token</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manuelapidocs3_ambiente-docker-li">
+  <input type="checkbox" id="m-manuelapidocs3_ambiente-docker-check"/>
+  <label for="m-manuelapidocs3_ambiente-docker-check"><a href="/manuel/api/docs/3_ambiente-docker/" title="Creando el ambiente" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-manuelapidocs3_ambiente-docker"><i class="fa-brands fa-docker"></i><span class="">Ambiente con docker</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-manuelapidocs2_cors-li">
+  <input type="checkbox" id="m-manuelapidocs2_cors-check" checked/>
+  <label for="m-manuelapidocs2_cors-check"><a href="/manuel/api/docs/2_cors/" title="CORS" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-manuelapidocs2_cors"><i class="fa-solid fa-screwdriver-wrench"></i><span class="td-sidebar-nav-active-item">2_Cors</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-manuelapidocs4_api-li">
+  <input type="checkbox" id="m-manuelapidocs4_api-check"/>
+  <label for="m-manuelapidocs4_api-check"><a href="/manuel/api/docs/4_api/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-manuelapidocs4_api"><i class="fa-brands fa-php"></i><span class="">4_Api php</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-manuelapidocs4_apiapi-li">
+  <input type="checkbox" id="m-manuelapidocs4_apiapi-check"/>
+  <label for="m-manuelapidocs4_apiapi-check"><a href="/manuel/api/docs/4_api/api/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-manuelapidocs4_apiapi"><span class="">API usuarios</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#referencias-web">Referencias Web</a></li>
+      </ul>
+    </li>
+    <li><a href="#cors">Cors</a>
+      <ul>
+        <li><a href="#cabeceras-concretas-usadas-en-cors">Cabeceras concretas usadas en CORS</a></li>
+        <li><a href="#nuestra-acción-para-el-proyecto">Nuestra acción para el proyecto</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    
+            
+
+	
+		
+
+
+
+  
+  
+
+	
+		
+
+
+
+  
+  
+
+	
+
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="http://proyectosdwa.es/manuel/api/docs/">Documentación</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="http://proyectosdwa.es/manuel/api/docs/2_cors/" aria-disabled="true" class="btn-link disabled">2_Cors</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>CORS</h1>
+  
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>
+	
+
+<div class="pageinfo pageinfo-primary">
+
+Cómo crear tokens en php  
+
+</div>
+
+<h3 id="referencias-web">Referencias Web</h3>
+<ol>
+<li><strong>Mozilla Developer Network (MDN) - CORS</strong></li>
+</ol>
+<blockquote>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">CORS</a></li>
+</ul>
+</blockquote>
+<ol start="2">
+<li><strong>Wikipedia - Same-origin policy</strong></li>
+</ol>
+<blockquote>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Same-origin_policy">Same-origin policy</a></li>
+</ul>
+</blockquote>
+<ol start="3">
+<li><strong>Enable CORS</strong></li>
+</ol>
+<blockquote>
+<ul>
+<li><a href="https://enable-cors.org/">Enable CORS</a></li>
+</ul>
+</blockquote>
+<h2 id="cors">Cors</h2>
+<p>
+
+<div class="pageinfo pageinfo-primary">
+<p><strong>CORS</strong></p>
+<blockquote>
+<p>Cross-Origin Resource Sharing o compartir recursos de orígenes cruzados.</p>
+</blockquote>
+
+</div>
+
+
+
+<div class="pageinfo pageinfo-primary">
+<h3 id="situación">Situación</h3>
+<p>En la web existen muchas situaciones en las cuales una aplicación web alojada en un dominio intenta realizar solicitudes a otro dominio distinto al de origen. Por ejemplo cuando hacemos una API, para ofrecer datos.<br>
+Esto puede suponer un problema porque no sabemos desde dónde nos pueden consumir datos, y podría incluso ocurrir que los datos sean sensibles y no queremos que cualquiera los consulte.</p>
+<h3 id="solución">Solución</h3>
+<p><strong>CORS</strong> permite a los servidores declarar explícitamente qué dominios tienen permitido acceder a sus recursos, mediante el uso de cabeceras HTTP. Esta restricción ayuda a evitar solicitudes no autorizadas y protege la integridad y la privacidad de los datos en aplicaciones web.</p>
+
+</div>
+</p>
+<h3 id="cabeceras-concretas-usadas-en-cors">Cabeceras concretas usadas en CORS</h3>
+<div class="highlight"><div style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="background-color:#d6d6c6"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></span><span style="background-color:#d6d6c6"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></span><span style="background-color:#d6d6c6"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></span><span style="background-color:#d6d6c6"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-php" data-lang="php"><span style="display:flex; background-color:#d6d6c6"><span>header(<span style="color:#cd5555">&#34;Access-Control-Allow-Origin: * &#34;</span>);
+</span></span><span style="display:flex; background-color:#d6d6c6"><span>header(<span style="color:#cd5555">&#34;Access-Control-Allow-Methods: GET, POST, OPTIONS&#34;</span>);
+</span></span><span style="display:flex; background-color:#d6d6c6"><span>header(<span style="color:#cd5555">&#34;Access-Control-Allow-Headers: Content-Type&#34;</span>);
+</span></span><span style="display:flex; background-color:#d6d6c6"><span>header(<span style="color:#cd5555">&#34;Access-Control-Allow-Credentials: true&#34;</span>);</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="nuestra-acción-para-el-proyecto">Nuestra acción para el proyecto</h3>
+<blockquote>
+<p>Tenemos dos opciones.</p>
+</blockquote>
+<h5 id="opción-1-dentro-del-fichero-php">Opción 1: dentro del fichero php</h5>
+<p>Establecer directamente con php usando la función <strong>header</strong> como hemos expuesto anteriormente:
+<div class="highlight"><div style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="background-color:#d6d6c6"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span></span><span style="background-color:#d6d6c6"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span></span><span style="background-color:#d6d6c6"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span></span><span style="background-color:#d6d6c6"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>&lt;?php
+</span></span><span style="display:flex;"><span><span style="color:#228b22">//código donde queremos enviar una respuesta a otro dominio
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span> ......
+</span></span><span style="display:flex;"><span>  <span style="color:#228b22">//Preparamos la información que queremos enviar
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>  <span style="color:#00688b">$datos</span> = [<span style="color:#cd5555">&#34;msj&#34;</span>=&gt;<span style="color:#cd5555">&#34;Los datos son incorrectos&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex; background-color:#d6d6c6"><span>  header(<span style="color:#cd5555">&#34;Access-Control-Allow-Origin: * &#34;</span>);
+</span></span><span style="display:flex; background-color:#d6d6c6"><span>  header(<span style="color:#cd5555">&#34;Access-Control-Allow-Methods: GET, POST, OPTIONS&#34;</span>);
+</span></span><span style="display:flex; background-color:#d6d6c6"><span>  header(<span style="color:#cd5555">&#34;Access-Control-Allow-Headers: Content-Type&#34;</span>);
+</span></span><span style="display:flex; background-color:#d6d6c6"><span>  header(<span style="color:#cd5555">&#34;Access-Control-Allow-Credentials: true&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#228b22">//Lo enviamos con un simple echo cofificando en json
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>  <span style="color:#8b008b;font-weight:bold">echo</span> json_encode(<span style="color:#00688b">$datos</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#8b008b;font-weight:bold">exit</span>();</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<h5 id="opción-2-en-la-configuracion-de-apache">Opción 2: En la configuracion de apache</h5>
+<p>Establecer el <strong>header</strong> como configuración de apache2.   <br>
+Podemos crear un fichero .htaccess en el directorio del proyecto y esa configuración se cargará para apache en la entrega de este proyecto    <br>
+Para que apache lea los directorios <strong>.htacces</strong> debe de tener configurado la opción <strong>AllowOverride</strong> en este directorio<br>
+Para conseguir todo, vamos a realizar dos acciones en nuestro docker:    1. Estableceremos un fichero de configuración para el directorio <strong>DocumentRoot</strong> de apache
+<div class="highlight"><div style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="background-color:#d6d6c6"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;VirtualHost *:80&gt;
+</span></span><span style="display:flex;"><span>    ServerAdmin manuelromeromigue@gmail.com
+</span></span><span style="display:flex;"><span>    DocumentRoot /var/www/html
+</span></span><span style="display:flex;"><span>      &lt;Directory /var/www/html&gt;
+</span></span><span style="display:flex;"><span>        Options Indexes FollowSymLinks
+</span></span><span style="display:flex; background-color:#d6d6c6"><span>        AllowOverride All
+</span></span><span style="display:flex;"><span>        Require all granted
+</span></span><span style="display:flex;"><span>    &lt;/Directory&gt;
+</span></span><span style="display:flex;"><span>&lt;/VirtualHost&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<blockquote>
+<p>Ahora en el fichero <strong>.htaccess</strong> estalblecemos las cabeceras para <strong>CORS</strong></p>
+</blockquote>
+<div class="highlight"><div style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="background-color:#d6d6c6"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></span><span style="background-color:#d6d6c6"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></span><span style="background-color:#d6d6c6"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;IfModule mod_headers.c&gt;
+</span></span><span style="display:flex; background-color:#d6d6c6"><span>    Header <span style="color:#658b00">set</span> Access-Control-Allow-Origin <span style="color:#cd5555">&#34;*&#34;</span>
+</span></span><span style="display:flex; background-color:#d6d6c6"><span>    Header <span style="color:#658b00">set</span> Access-Control-Allow-Methods <span style="color:#cd5555">&#34;GET, POST, OPTIONS&#34;</span>
+</span></span><span style="display:flex; background-color:#d6d6c6"><span>    Header <span style="color:#658b00">set</span> Access-Control-Allow-Headers <span style="color:#cd5555">&#34;Content-Type&#34;</span>
+</span></span><span style="display:flex;"><span>&lt;/IfModule&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+        <div class="section-index">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+	
+	
+	
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Correo del usuario" aria-label="Correo del usuario">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="Correo del usuario">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/MAlejandroR" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2023 @MRomero Derechos reservados</small>
+        <small class="ml-1"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de privacidad</a></small>
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+  <script src="/manuel/api/js/main.min.c845fc4186334f9869a5ea25d694c23ae3f490297793c6893ec76f9eab6ebfe3.js" integrity="sha256-yEX8QYYzT5hppeol1pTCOuP0kCl3k8aJPsdvnqtuv&#43;M=" crossorigin="anonymous"></script>
+<script src='/manuel/api/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

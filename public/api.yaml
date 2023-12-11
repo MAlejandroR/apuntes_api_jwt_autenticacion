@@ -1,0 +1,105 @@
+openapi: 3.0.0
+info:
+  title: "API Usuarios Autenticar, Restfull y acceder"
+  version: 1.0.0
+paths:
+ http://proyectosdwa.es:8080/usuarios/auth:
+    post:
+      summary: Autentica un usuario
+      parameters:
+        - in: body
+          name: usuario
+          required: true
+          description: Nombre del usuario
+          schema:
+            type: string
+        - in: body
+          name: password
+          required: true
+          description: Password del usuario
+          schema:
+            type: string
+    responses:
+      '200':
+        description: Éxito
+ http://proyectosdwa.es:8080/insertar_usuarios:
+   get:
+     summary: Inserta Usuarios
+   responses:
+     '200':
+       description:
+         descripcion1: Se han insertado 5 usuarios
+         descripcion2: No se han podido insertar, por que ya existían
+ http://proyectosdwa.es:8080/usuarios:
+    get:
+      summary: Obtener lista de usuarios
+      responses:
+        '200':
+          description: Éxito
+ http://proyectosdwa.es:8080/usuarios/{id}:
+    get:
+      summary: Obtener detalles de un usuario
+      security:
+        - api_key: [ ]
+        - roles: [ "admin", "gestor", "cliente" ]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID del usuario
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Éxito
+    put:
+      summary: Actualizar un usuario
+      security:
+        - api_key: [ ]
+        - roles: [ "admin", "gestor" ]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID del usuario
+          schema:
+            type: integer
+        - in: body
+          name: usuario
+          required: true
+          description: Nombre del usuario
+          schema:
+            type: string
+        - in: body
+          name: password
+          required: true
+          description: Password del usuario
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Éxito
+    delete:
+      summary: Eliminar un usuario
+      security:
+        - api_key: [ ]
+        - roles: [ "admin"]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID del usuario
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: No Content
+    components:
+      securitySchemes:
+        api_key:
+          type: apiKey
+          in: cookie
+          name: 1_token
+        roles:
+          type: http
+          scheme: bearer

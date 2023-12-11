@@ -2,73 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://certificado.infenalaces.com/contenido/docs/web-developer/elementos-en-el-proceso/</loc>
-    <lastmod>2023-04-08T18:21:47+02:00</lastmod>
+    <loc>http://proyectosdwa.es/manuel/api/docs/4_api/api/</loc>
   </url><url>
-    <loc>http://certificado.infenalaces.com/contenido/docs/</loc>
-    <lastmod>2023-04-08T18:21:47+02:00</lastmod>
+    <loc>http://proyectosdwa.es/manuel/api/docs/1_token/_indes/</loc>
   </url><url>
-    <loc>http://certificado.infenalaces.com/contenido/docs/web-developer/instalacion/</loc>
-    <lastmod>2023-04-08T18:21:47+02:00</lastmod>
+    <loc>http://proyectosdwa.es/manuel/api/docs/3_ambiente-docker/</loc>
   </url><url>
-    <loc>http://certificado.infenalaces.com/contenido/docs/web-developer/</loc>
-    <lastmod>2023-04-08T18:21:47+02:00</lastmod>
+    <loc>http://proyectosdwa.es/manuel/api/docs/</loc>
   </url><url>
-    <loc>http://certificado.infenalaces.com/contenido/docs/web-developer/php/</loc>
-    <lastmod>2023-04-08T18:21:47+02:00</lastmod>
+    <loc>http://proyectosdwa.es/manuel/api/docs/2_cors/</loc>
   </url><url>
-    <loc>http://certificado.infenalaces.com/contenido/</loc>
-    <lastmod>2023-04-08T18:21:47+02:00</lastmod>
+    <loc>http://proyectosdwa.es/manuel/api/docs/4_api/</loc>
+  </url><url>
+    <loc>http://proyectosdwa.es/manuel/api/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://certificado.infenalaces.com/contenido/en/"
+                href="http://proyectosdwa.es/manuel/api/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="http://certificado.infenalaces.com/contenido/fr/"
+                href="http://proyectosdwa.es/manuel/api/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://certificado.infenalaces.com/contenido/"
+                href="http://proyectosdwa.es/manuel/api/categories/"
                 />
   </url><url>
-    <loc>http://certificado.infenalaces.com/contenido/categories/</loc>
+    <loc>http://proyectosdwa.es/manuel/api/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://certificado.infenalaces.com/contenido/en/categories/"
+                href="http://proyectosdwa.es/manuel/api/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="http://certificado.infenalaces.com/contenido/fr/categories/"
+                href="http://proyectosdwa.es/manuel/api/fr/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://certificado.infenalaces.com/contenido/categories/"
+                href="http://proyectosdwa.es/manuel/api/"
                 />
   </url><url>
-    <loc>http://certificado.infenalaces.com/contenido/search/</loc>
+    <loc>http://proyectosdwa.es/manuel/api/search/</loc>
   </url><url>
-    <loc>http://certificado.infenalaces.com/contenido/tags/</loc>
+    <loc>http://proyectosdwa.es/manuel/api/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://certificado.infenalaces.com/contenido/en/tags/"
+                href="http://proyectosdwa.es/manuel/api/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="http://certificado.infenalaces.com/contenido/fr/tags/"
+                href="http://proyectosdwa.es/manuel/api/fr/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://certificado.infenalaces.com/contenido/tags/"
+                href="http://proyectosdwa.es/manuel/api/tags/"
                 />
   </url>
 </urlset>

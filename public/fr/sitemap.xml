@@ -2,55 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://certificado.infenalaces.com/contenido/fr/categories/</loc>
+    <loc>http://proyectosdwa.es/manuel/api/fr/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://certificado.infenalaces.com/contenido/en/categories/"
+                href="http://proyectosdwa.es/manuel/api/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://certificado.infenalaces.com/contenido/categories/"
+                href="http://proyectosdwa.es/manuel/api/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="http://certificado.infenalaces.com/contenido/fr/categories/"
+                href="http://proyectosdwa.es/manuel/api/fr/categories/"
                 />
   </url><url>
-    <loc>http://certificado.infenalaces.com/contenido/fr/</loc>
+    <loc>http://proyectosdwa.es/manuel/api/fr/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://certificado.infenalaces.com/contenido/"
+                href="http://proyectosdwa.es/manuel/api/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://certificado.infenalaces.com/contenido/en/"
+                href="http://proyectosdwa.es/manuel/api/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="http://certificado.infenalaces.com/contenido/fr/"
+                href="http://proyectosdwa.es/manuel/api/fr/"
                 />
   </url><url>
-    <loc>http://certificado.infenalaces.com/contenido/fr/tags/</loc>
+    <loc>http://proyectosdwa.es/manuel/api/fr/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://certificado.infenalaces.com/contenido/en/tags/"
+                href="http://proyectosdwa.es/manuel/api/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://certificado.infenalaces.com/contenido/tags/"
+                href="http://proyectosdwa.es/manuel/api/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="http://certificado.infenalaces.com/contenido/fr/tags/"
+                href="http://proyectosdwa.es/manuel/api/fr/tags/"
                 />
   </url>
 </urlset>
